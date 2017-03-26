@@ -1,12 +1,11 @@
 # Elementary version of mergesort, with following limitations:
 # - input array must have 2^n elements (so we have an even split down to 2 elements)
+#
+# mergesort is *awesome* because it is linear O(nlogn)
 
 def mergesort(a)
   # base case
-  if a.length == 2
-    return a if a[0] <= a[1]
-    return a.reverse
-  end
+  return a if a.length == 1
 
   # divide and conquer (and merge)
   mid = a.length / 2 - 1
@@ -34,5 +33,6 @@ def merge(a, b)
   end
 end
 
-# try it out (requires 2^n elements to work)
-puts mergesort([4, 0, 9, 5, 2, 1, 3, 8, -1, 10, -5, 3, 1, 99, 0, -1]).inspect
+# try it out
+puts mergesort([ 4,  0,  9, 5, 2,  1, 3,  8, 
+                -1, 10, -5, 3, 1, 99, 0, -1, -9]).inspect
