@@ -2,8 +2,6 @@
 # - input array must have 2^n elements (so we have an even split down to 2 elements)
 
 def mergesort(a)
-  puts "a = #{a.inspect}" #debug
-
   # base case
   if a.length == 2
     return a if a[0] <= a[1]
@@ -16,8 +14,6 @@ def mergesort(a)
 end
 
 def merge(a, b)
-  puts "a = #{a.inspect}, b = #{b.inspect}" #debug
-
   half_index = a.length - 1
   full_index = a.length + b.length - 1
 
@@ -25,8 +21,6 @@ def merge(a, b)
   c = []
 
   for i in 0..full_index
-    puts "i = #{i}, j = #{j}, k = #{k}, c = #{c.inspect}" #debug
-
     # finished with any of the halves?
     return c += b[k..-1] if j > half_index 
     return c += a[j..-1] if k > half_index
