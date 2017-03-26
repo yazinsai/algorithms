@@ -15,7 +15,7 @@ def merge(a, b)
   max_index = a.length + b.length - 1
 
   for i in 0..max_index
-    # finished with any of the halves?
+    # fast forward if we've already traversed 'a' or 'b'
     return c += b[k..-1] if j > a.length - 1 
     return c += a[j..-1] if k > b.length - 1
 
