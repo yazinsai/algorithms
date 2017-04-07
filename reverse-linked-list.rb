@@ -27,6 +27,17 @@ def reverse(head)
   head = prev
 end
 
+def recursive_reverse(node)
+  if node.nil? || node.next_node.nil?
+    return node
+  else
+    temp = recursive_reverse(node.next_node)
+    node.next_node.next_node = node
+    node.next_node = nil
+    return temp
+  end
+end
+
 n = Node.new("A",
       Node.new("B",
         Node.new("C",
