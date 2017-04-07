@@ -5,17 +5,18 @@ def mergesort(a)
   return a if a.length == 1
 
   # divide and conquer (and merge)
-  mid = a.length / 2 - 1
-  merge( mergesort(a[0..mid]), mergesort(a[mid+1..-1]) )
+  mid = a.length / 2
+  merge( mergesort(a[0, mid]), mergesort(a[mid, a.length]) )
 end
 
 def merge(a, b)
+  puts "merge called with a = #{a.inspect}, b = #{b.inspect}"
   j = k = 0
   c = []
   max_index = a.length + b.length - 1
 
   for i in 0..max_index
-    # fast forward if we've already traversed 'a' or 'b'
+    # fast forward if we've finished traversing either 'a' or 'b'
     return c += b[k..-1] if j > a.length - 1 
     return c += a[j..-1] if k > b.length - 1
 
