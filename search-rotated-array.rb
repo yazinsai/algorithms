@@ -7,15 +7,15 @@ def search(a, x) # search for x in a[]
   if a[mid] == x
     true
   elsif a[mid] <= a[right] # sorted
-    if x > a[mid] && x < a[right] # search right
+    if x > a[mid] && x <= a[right]
       search(a.right, x)
-    else # search left
+    else
       search(a.left, x)
     end
   else # resets after middle
-    if x > a[mid] || x <= a[right] # search right
+    if x > a[mid] || x <= a[right]
       search(a.right, x)
-    else # search left
+    else
       search(a.left, x)
     end
   end
