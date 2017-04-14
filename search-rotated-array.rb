@@ -36,4 +36,27 @@ class Array
   end
 end
 
+def search_iterative(a, x)
+  left, right = 0, a.length - 1
+  while left <= right do
+    mid = (left + right) / 2
+    if a[mid] == x; return true; end
+    if a[mid] < a[right] # sorted
+      if x > a[mid] # search right
+        left = mid + 1
+      else # search left
+        right = mid - 1
+      end
+    else # resets in right side
+      if x > a[mid] || x <= a[right] # search right
+        left = mid + 1
+      else # search left
+        right = mid - 1
+      end
+    end
+  end
+  false
+end
+
 puts search([3, 4, 5, 6, 1, 2], 3).inspect
+puts search_iterative([3, 4, 5, 6, 1, 2], 3).inspect
