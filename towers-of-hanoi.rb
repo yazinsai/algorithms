@@ -1,3 +1,6 @@
+# Excellent explanation of the solution at 
+# http://www.mathcs.emory.edu/~cheung/Courses/170/Syllabus/13/hanoi.html
+
 Move = 
   Struct.new :disk, :from, :to do
     def to_s
@@ -22,4 +25,4 @@ def hanoi(num, from, to)
   moves += hanoi(num - 1, spare, to) # move all the disks on top of the 'to' peg
 end
 
-puts hanoi(3, "A", "C").each {|m| m.to_s}
+puts hanoi(3, "A", "B").each {|m| m.to_s}
