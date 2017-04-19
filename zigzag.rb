@@ -32,18 +32,14 @@ def zigzag(array)
   return array.length if array.length <= 1
   
   # generate the differences
-  diffs = []
-  (1...array.length).each do |i|
-    diffs << array[i] - array[i - 1]
-  end
-  puts diffs.inspect
+  diffs = array.each_cons(2).map {|a, b| a - b}
   
   # find first non-zero element
   start = diffs.index {|e| !e.zero? }
   dir = diffs[start] <=> 0
   length = 2
   
-  # iterate
+  # find longest changing sequence; ignore gaps
   (start+1...diffs.length).each do |i|
     if diffs[i] * dir < 0
       dir *= -1
