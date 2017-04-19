@@ -1,6 +1,6 @@
 # Algorithms
 
-Love 'em or hate 'em, most tech companies still require that you know 'em when you interview for any technical role. This is a repository of all of the practice questions that I worked on while interviewing at various companies (including Big 4's like Facebook and Google) for a Software Engineer / Product Manager role. Like you (most probably), I hadn't done much work on algorithms since college, so this took quite a bit of practice to get the hang of.
+Love 'em or hate 'em, most tech companies still require that you know 'em when you interview for any technical role. This is a repository of all of the practice questions that I worked on while interviewing at various companies (including Big 4's) for a Software Engineer / Product Manager role. Like you (most probably), I hadn't done much work on algorithms since college, so this took quite a bit of practice to get the hang of.
 
 You can browse through the repository at your leisure, or you can follow this guide. The choice is yours.
 
