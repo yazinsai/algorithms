@@ -28,7 +28,7 @@ def steady(str)
 end
 
 def balanced?(n, freqs)
-  freqs.all? {|k, v| v <= n}
+  freqs.all? {|_, count| count <= n}
 end
 
 puts steady("GAAATAAA") # => 5
