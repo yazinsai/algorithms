@@ -32,10 +32,4 @@ def generate(n)
   pascal
 end
 
-def clamp(n, min, max)
-  return min if n < min
-  return max if n > max
-  n
-end
-
 puts generate(1).inspect
