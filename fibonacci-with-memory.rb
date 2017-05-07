@@ -1,13 +1,8 @@
 # implement fibonacci with memory
 
-def fibonacci(i, mem=[])
-  if [1, 2].include? i
-    1
-  else
-    mem[i - 1] = fibonacci(i - 1, mem) unless mem[i - 1]
-    mem[i - 2] = fibonacci(i - 2, mem) unless mem[i - 2]
-    mem[i] = mem[i-1] + mem[i-2]
-  end
+def fib(n, mem = [1, 1])
+  return mem[n] if mem[n]
+  mem[n] = fib(n - 1, mem) + fib(n - 2, mem)
 end
 
-puts fibonacci(5000)
+puts fib(5000)

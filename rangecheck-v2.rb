@@ -1,5 +1,5 @@
 # Improved algorithm for detecting overlaps in two timelines
-# Operates in O(n) time, O(1) space
+# Operates in O(nlogn) time, O(1) space
 
 def overlap?(a, b)
   # Sort both arrays, by start time

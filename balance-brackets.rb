@@ -1,5 +1,6 @@
 =begin
-You have a string consisting of open and closed parentheses, but parentheses may be imbalanced. Make the parentheses balanced and return the new string.
+You have a string consisting of open and closed parentheses, but parentheses may be 
+imbalanced. Make the parentheses balanced and return the new string.
 
 Assumptions:
 - Only uses () parantheses

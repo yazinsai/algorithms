@@ -1,5 +1,5 @@
 class Employee
-  public # change scope to public
+  public # change scope to public (default)
 
   # Static class variable
   @@count = 0
