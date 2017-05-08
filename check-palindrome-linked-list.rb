@@ -56,7 +56,7 @@ end
 node =
   Node.new("A",
     Node.new("C",
-      Node.new("C",
+      Node.new("B",
         Node.new("C",
           Node.new("A")))))
 puts palindrome?(node).inspect

@@ -23,11 +23,7 @@ class Iterator
 
   def next_node
     current = @stack.pop
-    
-    if current.right
-      node = current.right
-      iterate_left(node)
-    end
+    iterate_left(current.right) if current.right
 
     current
   end
@@ -36,7 +32,7 @@ class Iterator
 
   def iterate_left(node)
     while node do
-      @stack << node
+      @stack.push node
       node = node.left
     end
   end

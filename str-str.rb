@@ -7,21 +7,25 @@ needle is not part of haystack.
 Source: https://leetcode.com/problems/implement-strstr/#/description
 =end
 
-def str_str(haystack, needle)
-  return 0 if haystack == needle
-  
+# searches for needle in haystack
+def strstr(haystack, needle)
   i = 0
   while i < haystack.length do
-    j = 0
-    while j < needle.length
-      break if haystack[i+j] != needle[j]
-      j += 1
+    if haystack[i] == needle[0]
+      found = true
+      needle.length.times do |j|
+        if haystack[i + j] != needle[j]
+          found = false
+          break
+        end
+      end
+      return i if found
     end
-    return i if j == needle.length
     
-    i += 1 # not j, because "mississippi", "issip"
+    i += 1
   end
-  -1
+  
+  false
 end
 
-puts str_str("haystack", "stack")
+puts strstr("mississippi", "issip")
