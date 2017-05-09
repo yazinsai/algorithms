@@ -20,20 +20,13 @@ class Node
   end
 end
 
-def array_to_bst(array)
-  return if !array || array.length == 0
+def to_bst(arr)
+  return nil if arr.nil? || arr.empty?
   
-  if array.length == 1
-    Node.new(array[0])
-  else
-    mid = array.length / 2
-    Node.new( 
-      array[mid], 
-      array_to_bst( array[0, mid] ), 
-      array_to_bst( array[mid+1, array.length-1] ))
-  end
+  mid = arr.length / 2
+  Node.new(arr[mid],
+    to_bst(arr[0...mid]),
+    to_bst(arr[mid+1..-1]))
 end
 
-n = array_to_bst([1, 3])
-puts n.to_s
-
+puts to_bst([1, 2, 4, 5, 7, 9]).to_s
