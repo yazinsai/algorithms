@@ -7,14 +7,16 @@ def substrings(str)
 end
 
 def substringr(str)
-  return [str] if str.length == 1
+  return [] if str.empty?
   
   # top bottom
   subs = []
-  (0...str.length).each do |i|
+  str.length.times do |i|
     subs << str[0..i]
   end
   subs + substringr(str[1..-1]) # bottom up
 end
 
 puts substrings("hello").inspect
+puts "\n\nRecursive now:"
+puts substringr("hello").inspect
