@@ -6,11 +6,13 @@ You may assume that there will be only one unique solution.
 Source: https://leetcode.com/problems/sudoku-solver/
 =end
 
+BLANK = '.'
+
 def sudoku(board)
   # find first '.'
   for i in 0...board.length
     for j in 0...board[i].length
-      next unless board[i][j] == '.'
+      next unless board[i][j] == BLANK
       
       options = get_options(board, i, j)
       return nil if options.empty? # validity check failed, kill branch
@@ -20,7 +22,7 @@ def sudoku(board)
       options.each do |v|
         proposed[i][j] = v
         return proposed if sudoku(proposed)
-        proposed[i][j] = '.'
+        proposed[i][j] = BLANK
       end
       
       # none of the options worked
@@ -43,15 +45,15 @@ def get_options(board, row, col)
   len = board.length
   
   # remove the options that exist in the same row
-  options -= (board[row].chars.uniq - ['.']).map(&:to_i)
+  options -= (board[row].chars.uniq - [BLANK]).map(&:to_i)
   
   # remove the options that exist in the same column
   column = len.times.collect {|row| board[row][col]}
-  options -= (column.uniq - ['.']).map(&:to_i)
+  options -= (column.uniq - [BLANK]).map(&:to_i)
   
   # remove the options that exist in the same block
   block = get_block(board, row, col)
-  options -= (block.uniq - ['.']).map(&:to_i)
+  options -= (block.uniq - [BLANK]).map(&:to_i)
   
   # return as chars
   options.map(&:to_s)
