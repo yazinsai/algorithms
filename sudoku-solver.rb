@@ -5,7 +5,6 @@ You may assume that there will be only one unique solution.
 
 Source: https://leetcode.com/problems/sudoku-solver/
 =end
-
 BLANK = '.'
 
 def sudoku(board)
@@ -41,22 +40,22 @@ def get_options(board, row, col)
   # - no repeated numbers in a column
   # - no repeated numbers in a block
   
-  options = [*1..9] # all options
+  options = [*"1".."9"] # all options
   len = board.length
   
   # remove the options that exist in the same row
-  options -= (board[row].chars.uniq - [BLANK]).map(&:to_i)
+  options -= board[row].chars.uniq
   
   # remove the options that exist in the same column
   column = len.times.collect {|row| board[row][col]}
-  options -= (column.uniq - [BLANK]).map(&:to_i)
+  options -= column.uniq
   
   # remove the options that exist in the same block
   block = get_block(board, row, col)
-  options -= (block.uniq - [BLANK]).map(&:to_i)
-  
-  # return as chars
-  options.map(&:to_s)
+  options -= block.uniq
+
+  # remove blanks and return
+  options -= [BLANK]
 end
 
 def get_block(board, row, col)
